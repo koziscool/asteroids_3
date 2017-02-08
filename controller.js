@@ -3,8 +3,6 @@ var controller = {
 
   init: function(){
     // set initial values for ship
-    console.log('controller');
-
     view.clearCanvas();
     view.drawShip( ship );
     controller.generateAsteroids(5);

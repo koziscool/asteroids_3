@@ -1,6 +1,58 @@
 
 var view  = {
 
+  init: function(){
+    view.listeners.keypressListener();
+    view.listeners.keyupListener();
+  },
+
+  listeners: {
+    keypressListener: function() {
+      $(document).keydown( function(e){
+        switch(e.which) {
+          case 37:
+            controller.direction = "left";
+            break;
+
+          case 32:
+            controller.fire = true;
+            break;
+
+          case 39:
+            controller.direction = "right";
+            break;
+
+          case 38:
+            controller.direction = "up";
+            break;
+        }
+      });
+    },
+
+    keyupListener: function() {
+      $(document).keydown( function(e){
+        switch(e.which) {
+          case 37:
+            controller.direction = "";
+            break;
+
+          case 38:
+            controller.direction = "";
+            break;
+
+          case 39:
+            controller.direction = "";
+            break;
+
+          case 40:
+            controller.direction = "";
+            break;
+
+        }
+      });
+    }
+  },
+
   drawAsteroid: function(asteroid){
     console.log('asteroid');
     var c=document.getElementById("canvas");
@@ -20,6 +72,9 @@ var view  = {
 
       // Draw triangle
       ctx.fillStyle="#A2322E";
+      ctx.strokeStyle="#FFFFFF";
+      // ctx.strokeStyle="#000000";
+
       ctx.beginPath();
       // Draw a triangle location for each corner from x:y 100,110 -> 200,10 -> 300,110 (it will return to first point)
       ctx.moveTo( ship.rearPoint1().x, ship.rearPoint1().y );
