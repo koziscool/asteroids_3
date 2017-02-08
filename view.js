@@ -3,7 +3,7 @@ var view  = {
 
   init: function(){
     view.listeners.keypressListener();
-    view.listeners.keyupListener();
+    // view.listeners.keyupListener();
   },
 
   listeners: {
@@ -54,7 +54,7 @@ var view  = {
   },
 
   drawAsteroid: function(asteroid){
-    console.log('asteroid');
+    // console.log('asteroid');
     var c=document.getElementById("canvas");
     var ctx=c.getContext("2d");
     ctx.fillStyle="#FFFFFF";

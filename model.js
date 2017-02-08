@@ -39,6 +39,13 @@ var ship = {
   velX: 0,
   velY: 0,
 
+  updatePosition: function() {
+      this.locationX += this.velX;
+      this.locationX = ((this.locationX % space.width) + space.width) % space.width;
+      this.locationY += this.velY;
+      this.locationY = ((this.locationY % space.height) + space.height) % space.height;
+  },
+
   headPoint: function() {
     var r = 30;
     var theta = ship.direction;

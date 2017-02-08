@@ -1,6 +1,9 @@
 
 var controller = {
 
+  direction: "",
+  fire: false,
+
   init: function(){
     // set initial values for ship
     view.clearCanvas();
@@ -24,21 +27,30 @@ var controller = {
     });
   },
 
+  setDirection: function(  ) {
+    if(controller.direction === "right"){
+      console.log( "right");
+      ship.direction += 1/20 * Math.PI;
+    }else if (controller.direction === "left"){
+      ship.direction -= 1/20 * Math.PI;
+    }
+  },
+  
   gameLoop: function(){
     // controller.generateAsteroids(1);
     view.clearCanvas();
     view.drawShip( ship );
-    // controller.setDirection();
+    controller.setDirection();
     // controller.setThrust();
     // controller.controlShipFire();
     controller.updateAsteroidPos();
-    // ship.updatePosition();
+    ship.updatePosition();
     // asteroid.collision();
   },
 
   game: function(){
-    // setInterval(controller.gameLoop, 20);
-    setTimeout(controller.gameLoop);
+    setInterval(controller.gameLoop, 20);
+    // setTimeout(controller.gameLoop);
   }
 
 };
